@@ -2,13 +2,13 @@ import aioodbc
 
 # database config
 server = 'umsdb.c7qyig0ucelj.ap-southeast-2.rds.amazonaws.com'
-database = 'POS'
+database = 'BlockchainAudit'
 username = 'bleuadmin'
 password = 'bleuadmin123'
 driver = 'ODBC Driver 17 for SQL Server'
 
 # async function to get db connection
-async def get_db_connection():
+async def get_blockchain_db_connection():
     dsn = (
         f"DRIVER={{{driver}}};"
         f"SERVER={server};"
