@@ -20,10 +20,10 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 router = APIRouter()
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="http://localhost:4000/auth/token")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="https://authservices-npr8.onrender.com/auth/token")
 
 # --- Auth Configuration ---
-USER_SERVICE_ME_URL = "http://localhost:4000/auth/users/me"
+USER_SERVICE_ME_URL = "https://authservices-npr8.onrender.com/auth/users/me"
 
 BUILDBEAR_RPC_URL = os.getenv("BUILDBEAR_RPC_URL", "https://rpc.buildbear.io/screeching-yondu-eb2d9143")
 PRIVATE_KEY = os.getenv("PRIVATE_KEY", "dedafa3f5b97959588c0565254045bc36aa52aceef5838b50437d5d5d336345f")

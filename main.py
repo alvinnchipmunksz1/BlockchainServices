@@ -43,22 +43,16 @@ app.include_router(BlockchainLogsRouter, prefix="/blockchain-logs", tags=["Block
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:4001",
-        "http://192.168.100.32:4001",
-        "http://localhost:3000",
-        "http://localhost:4000",
-        "http://127.0.0.1:4000",
-        "http://192.168.100.14:8002",
-        "http://localhost:8002",
-        "http://192.168.100.14:8003",
-        "http://localhost:8003",
-        "http://localhost:5000",
-        "http://localhost:7004",
-        "http://127.0.0.1:7004",
-        "http://localhost:9000",  # POS Service
-        "http://127.0.0.1:9000",
-        "http://localhost:9005",  # Self
-        "http://127.0.0.1:9005",
+        "https://bleu-ums-zeta.vercel.app"
+        "https://bleu-ims-beta.vercel.app"
+        "https://bleu-pos-tau.vercel.app"
+        "https://authservices-npr8.onrender.com",
+        "https://bleu-stockservices.onrender.com",
+        "https://ims-restockservices.onrender.com"
+        "https://bleu-oos-rouge.vercel.app",
+        "https://ordering-service-8e9d.onrender.com",
+        "https://sales-services.onrender.com",
+        "https://blockchainservices.onrender.com",
     ],
     allow_credentials=True,
     allow_methods=["*"],

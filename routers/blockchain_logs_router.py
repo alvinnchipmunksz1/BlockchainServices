@@ -15,8 +15,8 @@ router_blockchain_logs = APIRouter(
 )
 
 # Auth configuration
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="http://127.0.0.1:4000/auth/token")
-USER_SERVICE_ME_URL = "http://localhost:4000/auth/users/me"
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="https://authservices-npr8.onrender.com/auth/token")
+USER_SERVICE_ME_URL = "https://authservices-npr8.onrender.com/auth/users/me"
 
 # --- Authorization Helper Function ---
 async def get_current_active_user(token: str = Depends(oauth2_scheme)):
