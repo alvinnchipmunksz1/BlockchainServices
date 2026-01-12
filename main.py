@@ -43,12 +43,12 @@ app.include_router(BlockchainLogsRouter, prefix="/blockchain-logs", tags=["Block
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://bleu-ums-zeta.vercel.app"
-        "https://bleu-ims-beta.vercel.app"
-        "https://bleu-pos-tau.vercel.app"
+        "https://bleu-ums-zeta.vercel.app",
+        "https://bleu-ims-beta.vercel.app",
+        "https://bleu-pos-tau.vercel.app",
         "https://authservices-npr8.onrender.com",
         "https://bleu-stockservices.onrender.com",
-        "https://ims-restockservices.onrender.com"
+        "https://ims-restockservices.onrender.com",
         "https://bleu-oos-rouge.vercel.app",
         "https://ordering-service-8e9d.onrender.com",
         "https://sales-services.onrender.com",
