@@ -14,9 +14,8 @@ print("Testing contract connection...")
 print(f"RPC URL: {BUILDBEAR_RPC_URL}")
 print(f"Contract Address: {CONTRACT_ADDRESS}")
 
-# Override with the newly deployed contract address from deployment output
-CONTRACT_ADDRESS = "0x5d82f15140657Ae236FC24C1DB715f6f0A6144b1"
-print(f"Using updated Contract Address: {CONTRACT_ADDRESS}")
+# Use the contract address from .env (updated by deploy.py)
+print(f"Using Contract Address from .env: {CONTRACT_ADDRESS}")
 
 # Initialize Web3
 w3 = Web3(Web3.HTTPProvider(BUILDBEAR_RPC_URL))
