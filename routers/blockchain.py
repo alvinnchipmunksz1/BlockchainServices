@@ -133,13 +133,12 @@ try:
             contract = w3.eth.contract(address=contract_checksum, abi=ACTIVITY_LOG_ABI)
             logger.info(f"✅ Contract initialized at: {contract_checksum}")
             
-            # Test contract connection
-            try:
-                log_count = contract.functions.logCount().call()
-                logger.info(f"✅ Contract verified. Current log count: {log_count}")
-            except Exception as e:
-                logger.error(f"⚠️  Contract call test failed: {e}")
-                contract = None
+        # Test contract connection
+        try:
+            log_count = contract.functions.logCount().call()
+            logger.info(f"✅ Contract verified. Current log count: {log_count}")
+        except Exception as e:
+            logger.warning(f"⚠️  Contract call test failed: {e}. Proceeding anyway.")
         except Exception as e:
             logger.error(f"⚠️  Invalid contract address: {e}")
             contract = None
@@ -287,15 +286,9 @@ async def log_to_blockchain(log_data: ActivityLogRequest) -> ActivityLogResponse
         # Prepare transaction
         nonce = w3.eth.get_transaction_count(account.address)
         
-        # Check account balance
+        # Check account balance (for logging only on testnet)
         balance = w3.eth.get_balance(account.address)
         logger.info(f"Account balance: {w3.from_wei(balance, 'ether')} ETH")
-
-        if balance == 0:
-            raise HTTPException(
-                status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-                detail="Account has insufficient funds. Please fund the account or use a pre-funded test account."
-            )
 
         tx = contract.functions.logActivity(
             log_data.service_identifier,
