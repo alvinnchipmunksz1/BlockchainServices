@@ -27,7 +27,7 @@ USER_SERVICE_ME_URL = "https://authservices-npr8.onrender.com/auth/users/me"
 
 BUILDBEAR_RPC_URL = os.getenv("BUILDBEAR_RPC_URL", "https://rpc.buildbear.io/deaf-warlock-ac333142")
 PRIVATE_KEY = os.getenv("PRIVATE_KEY", "dbcaeb0e881cca9574bd5c6c50447fd5c1e6c0cfaf48cd0f48be6538eca9c9c6")
-CONTRACT_ADDRESS = os.getenv("CONTRACT_ADDRESS", "0x5d82f15140657Ae236FC24C1DB715f6f0A6144b1")
+CONTRACT_ADDRESS = os.getenv("CONTRACT_ADDRESS", "0xA7f94107186B09DC646AE6328c00f1750973f2d0")
 # Matches the solidity smart contract
 ACTIVITY_LOG_ABI = [
     {
