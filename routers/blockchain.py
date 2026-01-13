@@ -132,13 +132,13 @@ try:
             contract_checksum = Web3.to_checksum_address(CONTRACT_ADDRESS)
             contract = w3.eth.contract(address=contract_checksum, abi=ACTIVITY_LOG_ABI)
             logger.info(f"✅ Contract initialized at: {contract_checksum}")
-            
-        # Test contract connection
-        try:
-            log_count = contract.functions.logCount().call()
-            logger.info(f"✅ Contract verified. Current log count: {log_count}")
-        except Exception as e:
-            logger.warning(f"⚠️  Contract call test failed: {e}. Proceeding anyway.")
+
+            # Test contract connection
+            try:
+                log_count = contract.functions.logCount().call()
+                logger.info(f"✅ Contract verified. Current log count: {log_count}")
+            except Exception as e:
+                logger.warning(f"⚠️  Contract call test failed: {e}. Proceeding anyway.")
         except Exception as e:
             logger.error(f"⚠️  Invalid contract address: {e}")
             contract = None
