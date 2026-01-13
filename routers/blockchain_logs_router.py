@@ -95,10 +95,10 @@ async def get_blockchain_logs_for_sale(sale_id: int):
                 })
 
         await blockchain_conn.close()
-        
+
         logger.info(f"✅ Retrieved {len(blockchain_logs)} blockchain logs for sale {sale_id}")
         return blockchain_logs
-        
+
     except Exception as e:
         logger.error(f"Error fetching blockchain logs for sale {sale_id}: {e}", exc_info=True)
         raise HTTPException(
@@ -108,7 +108,7 @@ async def get_blockchain_logs_for_sale(sale_id: int):
     finally:
         if blockchain_conn:
             try:
-                blockchain_conn.close()
+                await blockchain_conn.close()
             except:
                 pass
 
@@ -165,10 +165,10 @@ async def verify_blockchain_transaction(transaction_hash: str):
             }
 
         await blockchain_conn.close()
-        
+
         logger.info(f"✅ Verified transaction: {transaction_hash}")
         return result
-        
+
     except HTTPException:
         raise
     except Exception as e:
@@ -180,7 +180,7 @@ async def verify_blockchain_transaction(transaction_hash: str):
     finally:
         if blockchain_conn:
             try:
-                blockchain_conn.close()
+                await blockchain_conn.close()
             except:
                 pass
 
@@ -240,10 +240,10 @@ async def get_blockchain_stats_for_sale(sale_id: int):
             }
 
         await blockchain_conn.close()
-        
+
         logger.info(f"✅ Retrieved blockchain stats for sale {sale_id}")
         return result
-        
+
     except Exception as e:
         logger.error(f"Error fetching blockchain stats for sale {sale_id}: {e}", exc_info=True)
         raise HTTPException(
@@ -253,6 +253,6 @@ async def get_blockchain_stats_for_sale(sale_id: int):
     finally:
         if blockchain_conn:
             try:
-                blockchain_conn.close()
+                await blockchain_conn.close()
             except:
                 pass

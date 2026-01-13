@@ -381,10 +381,10 @@ async def create_activity_log(
     Log an activity to the blockchain.
     This should be called by other microservices after successful POST/PATCH operations.
     """
-    # Ensure actor username matches authenticated user
+    # Log actor username mismatch for transparency (not an error)
     if log_data.actor_username != current_user.get("username"):
-        logger.warning(f"Actor username mismatch: {log_data.actor_username} vs {current_user.get('username')}")
-    
+        logger.info(f"Actor username in log data: {log_data.actor_username}, authenticated user: {current_user.get('username')}")
+
     # Log to blockchain
     result = await log_to_blockchain(log_data)
     
